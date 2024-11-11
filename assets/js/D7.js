@@ -3,23 +3,23 @@
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
 */
 console.log("ESERCIZIO 1")
-function stringConcat(stringUno, stringDue){
-stringUno = stringUno.slice(0,2).concat(stringDue.slice(-3)).toUpperCase();
-return stringUno;
+function stringConcat(stringUno, stringDue) {
+  stringUno = stringUno.slice(0, 2).concat(stringDue.slice(-3)).toUpperCase();
+  return stringUno;
 }
-console.log(stringConcat("Prima","Stringa"));
+console.log(stringConcat("Prima", "Stringa"));
 
 
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
 console.log("ESERCIZIO 2");
-function arrayRandomico(){
+function arrayRandomico() {
   let arrayRandom = [];
-for(let i = 0; i < 11; i++){
-arrayRandom.push(Math.floor(Math.random()*101)); 
-}
-return arrayRandom;
+  for (let i = 0; i < 11; i++) {
+    arrayRandom.push(Math.floor(Math.random() * 101));
+  }
+  return arrayRandom;
 }
 console.log(arrayRandomico());
 
@@ -29,21 +29,21 @@ console.log(arrayRandomico());
 console.log("ESERCIZIO 3");
 arrayIniziale = arrayRandomico();
 console.log(arrayIniziale); //ARRAY DI PARTENZA
-const arrayFiltrato = arrayIniziale.filter(function (elementEs3){
-  if (elementEs3 % 2 === 0 ){
-   return elementEs3;
+const arrayFiltrato = arrayIniziale.filter(function (elementEs3) {
+  if (elementEs3 % 2 === 0) {
+    return elementEs3;
   }
 }
 )
 console.log(arrayFiltrato);
-  /* ESERCIZIO 4 (forEach)
-  Scrivi una funzione per sommare i numeri contenuti in un array
+/* ESERCIZIO 4 (forEach)
+Scrivi una funzione per sommare i numeri contenuti in un array
 */
 console.log("ESERCIZIO 4");
-arrayNumerico=[12,8,10,8];
+arrayNumerico = [12, 8, 10, 8];
 let totalEs4 = 0;
-arrayNumerico.forEach(function(elementoEs4){
-console.log(totalEs4 += elementoEs4);
+arrayNumerico.forEach(function (elementoEs4) {
+  console.log(totalEs4 += elementoEs4);
 }
 );
 
@@ -52,15 +52,15 @@ console.log(totalEs4 += elementoEs4);
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 console.log("ESERCIZIO 5");
-arrayEs5 =[1,2,3,4,25];
-const totArray = arrayEs5.reduce((totalEs5, elementEs5) => totalEs5 + elementEs5,0);
+arrayEs5 = [1, 2, 3, 4, 25];
+const totArray = arrayEs5.reduce((totalEs5, elementEs5) => totalEs5 + elementEs5, 0);
 console.log(totArray);
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
 console.log("ESERCIZIO 6");
-arrayEs6=[5,10,15,20,25];
+arrayEs6 = [5, 10, 15, 20, 25];
 let n = 5;
 
 const arrayIncrementato = arrayEs6.map(elementEs6 => elementEs6 + n);
@@ -72,7 +72,7 @@ console.log(arrayIncrementato);
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
 console.log("ESERCIZIO 7");
-const arrayStringhe = ["Uno","Quattro","Sette","Otto","Dodici"];
+const arrayStringhe = ["Uno", "Quattro", "Sette", "Otto", "Dodici"];
 const arrayLunghezza = arrayStringhe.map(elementEs7 => elementEs7.length);
 console.log(arrayLunghezza);
 
@@ -80,10 +80,10 @@ console.log(arrayLunghezza);
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
 console.log("ESERCIZIO 8");
-function dispari(){
-  arrayDisparo =[];
-  for(let i=1;i< 100;i++){
-    if (i % 2 !== 0 )
+function dispari() {
+  arrayDisparo = [];
+  for (let i = 1; i < 100; i++) {
+    if (i % 2 !== 0)
       arrayDisparo.push(i);
   }
   return arrayDisparo;
@@ -210,56 +210,66 @@ const movies = [
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
 console.log("ESERCIZIO 9");
-let annoDiConfronto = 2025; 
+let annoDiConfronto = 2025;
 let titoloFilm;
-console.log(parseInt(movies[0].Year));
-
-
-movies.forEach(function(elementoEs9) {
+function oldestMovie(){
+movies.forEach(function (elementoEs9) {
   let anno = parseInt(elementoEs9.Year);
-  if(anno < annoDiConfronto){
+  if (anno < annoDiConfronto) {
     annoDiConfronto = anno;
-    titoloFilm = elementoEs9;
+    titoloFilm = {...elementoEs9};   //ERRATO ANDAVA USATO SPREAD OPERATOR titoloFilm = {...elementoEs9}; invece di titoloFilm = elementoEs9;
   }
 }
 );
-console.log(titoloFilm)
+return titoloFilm;
+}
+console.log(oldestMovie())
 
 
 /* ESERCIZIO 10  ris 14
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
 console.log("ESERCIZIO 10");
-function numeroFilm(){
-  let numeroTotaleFilm=0;
-for(let i = 0 ; i <movies.length; i++){
-numeroTotaleFilm += 1;
+function numeroFilm() {
+  let numeroTotaleFilm = 0;
+  for (let i = 0; i < movies.length; i++) {         //COMPLETE NONSENSE
+    numeroTotaleFilm += 1;
 
-}
-return numeroTotaleFilm;
+  }
+  return numeroTotaleFilm;
 }
 console.log(numeroFilm())
+//CORREZIONE
+function countMovies(){
+  return movies.length;
+}
+console.log(countMovies());
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
 console.log("ESERCIZIO 11");
-const arrayTitoli = movies.map(function (elementoEs11){
+function filmTitle(){
+const arrayTitoli = movies.map(function (elementoEs11) {
   return elementoEs11.Title;
 
 });
-console.log(arrayTitoli);
+return arrayTitoli;
+}
+console.log(filmTitle());
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
 console.log("ESERCIZIO 12");
-const  filmPerAnno = movies.filter(function(elementoEs12){
-  let anno = parseInt(elementoEs12.Year);
-  if(anno >= 2001 ){
-    return elementoEs12;
+function filmMillenio(){
+const filmPerAnno = movies.filter(function (elementoEs12) {
+
+
+  return parseInt(elementoEs12.Year) >= 2001;
+}  
+) 
+return filmPerAnno;
 }
-return;
-});
-console.log(filmPerAnno);
+console.log(filmMillenio());
 
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
@@ -275,7 +285,27 @@ console.log(sommaTotaleAnni);
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
+console.log("ESERCIZIO 14");
+let filmSearch = 'tt2395427';
+const filmRicercato = movies.find(elementoEs14 => elementoEs14.imdbID === filmSearch);
+
+console.log(filmRicercato);
+
+
+
+
 
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
+console.log("ESERCIZIO 15");
+let annoRicerca = "2003";
+function firstFilm(){
+const ricercaFilmAnno = movies.findIndex(elementoEs15 => {
+  return elementoEs15.Year === annoRicerca;
+  
+
+});
+return ricercaFilmAnno;
+}
+console.log(firstFilm());
