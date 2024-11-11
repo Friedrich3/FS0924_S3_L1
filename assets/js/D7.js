@@ -252,10 +252,10 @@ console.log(arrayTitoli);
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
 console.log("ESERCIZIO 12");
-const  filmPerAnno = movies.filter(function(ElementoEs12){
-  let anno = parseInt(ElementoEs12.Year);
+const  filmPerAnno = movies.filter(function(elementoEs12){
+  let anno = parseInt(elementoEs12.Year);
   if(anno >= 2001 ){
-    return ElementoEs12;
+    return elementoEs12;
 }
 return;
 });
@@ -264,6 +264,13 @@ console.log(filmPerAnno);
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+//const totArray = arrayEs5.reduce((totalEs5, elementEs5) => totalEs5 + elementEs5,0);
+console.log("ESERCIZIO 13");
+let sommaTotaleAnni = movies.reduce((totalEs13, elementoEs13) => totalEs13 + parseInt(elementoEs13.Year), 0);
+console.log(sommaTotaleAnni);
+
+
+
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
